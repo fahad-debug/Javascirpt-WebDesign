@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Landing Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+    <div class="logo">
+        <img src="avatar-5594052_1920.png" width="100" height="100" alt="">
+    </div>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Portfolio</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Contact Me</a></li>
+    
+    </ul>
+</nav>
+<header>
+    <button id="toggle" class="toggle"><i class="fa fa-bars fa-2x"></i></button>
+
+    <h1>My Landing Page</h1>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. A illo tenetur et vitae id reprehenderit assumenda doloremque totam omnis error voluptatibus nam, nobis aut quod consequuntur sapiente, illum sit corrupti?
+    </p>
+    <button class="cta-btn" id="open">Sing Up</button>
+</header>
+
+<div class="container">
+    <h2>What is this landing page about ?</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et repellat consequuntur incidunt eveniet aspernatur earum sint deleniti aliquam ratione, ipsa voluptate accusamus fuga tenetur assumenda perspiciatis sapiente in quibusdam? Deserunt!</p>
+    <h2>Tell me More</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, velit. Velit maiores quidem nostrum, labore nemo sapiente atque consequuntur recusandae quae, eum commodi eos fuga dolore non repellendus expedita quia debitis voluptas. Perspiciatis ea voluptatibus tenetur architecto molestias quas ducimus!</p>
+
+    <h2>Benefits</h2>
+<ul>
+    <li>LifeTime Access</li>
+    <li> 30 day money back</li>
+    <li>you have 0 risk</li>
+</ul>
+</div>
+    <!--Model -->
+
+    <div class="modal-container" id="modal">
+
+        <div class="modal">
+            <button class="close-btn" id="close">
+                <i class="fa fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <h3>sign up</h3>
+            </div>
+
+            <div class="modal-content">
+                <p>Register with us to get offers , support and more </p>
+                <form action="" class="modal-form">
+                    <div>
+                      <label for="name">Name</label>
+                      <input type="text" id="name" placeholder="EnterName" class="form-input">
+                    </div>
+                    <div>
+                        <label for="name">Email</label>
+                        <input
+                      type="email" id="email" placeholder="EnterEmail"class="form-input">
+                      </div>
+                      <div>
+                        <label for="password">passowrd</label>
+                        <input type="password" id="passowrd" placeholder="EnterPassword"class="form-input">
+                      </div>
+                      <div>
+                        <label for="passowrd2">ConfirmPassword</label>
+                        <input type="password2" id="passoword2" placeholder="ConfirmPassword"class="form-input">
+                      </div>
+                        <input type="submit" value="submit" class="submit-btn">
+                
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
