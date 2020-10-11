@@ -10,7 +10,10 @@ const words=["application","programming"," interface","wizard"];
 
 let selectedWord=words[Math.floor(Math.random() * words.length)];
 
-
+//1.we chose randomly word then
+//2.we use split to a word into array 
+["a", "p", "p", "l", "i", "c", "a", "t", "i", "o","n"];
+//3.include it contains these letters 
 
 //WE NEED TWO LETTERS 
 const correctLetters=[];
@@ -19,6 +22,8 @@ const wrongLetters=[];
 //show hidden word
 function displayWord()
 {
+///split method is used to split a string into an array of
+/// substring and returns the new array 
 
     wordEl.innerHTML=`
 ${selectedWord.split("").map(letter=>`<span class="letter">
