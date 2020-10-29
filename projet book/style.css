@@ -1,0 +1,66 @@
+
+body
+{
+
+    margin:0;
+    padding:0;
+
+}
+
+
+td{
+    padding-right: 180px;
+    padding-top:10px;
+    background:  #f4511e;
+}
+
+table
+ {
+
+flex-direction: column;
+
+position: fixed;
+left:380px;
+
+ }
+
+
+
+
+
+
+ h1{
+     
+    text-align: center;
+}
+
+
+.formbook{
+    width: 50%;
+    margin:auto;
+    display:flex;
+    flex-direction: column;
+
+
+}
+
+form >*{
+    margin:3px;
+    padding:3px;
+
+}
+
+.btn{
+    background-color: #f4511e;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    opacity: 1;
+    transition: 0.3s;
+ border:none;
+
+
+}

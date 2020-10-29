@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>CheckList</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/starter-template/">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+
+<body class="container" style="margin-top: 50px;">
+    <div class="card"> 
+        <div class="card-header">
+            <ul class="nav nav-pills w-100">
+                <li class="nav-pill active">
+                    <a class="nav-link">CheckList</a>
+                </li>
+                <li class="nav-pill ml-auto">
+                    <a class="nav-link active" href="/add">Rajouter</a>
+                </li>
+            </ul>
+        </div>
+
+    <div class="card-body">
+<!-- balise thead le titre c'est le Nom de la Colonne -->
+    
+            <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Titre</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Crée à</th>
+                    <th scope="col">control</th>
+                </tr>
+                <!-- FIXME balise rouge ouvrante et blanche fermante -->
+                </thead>
+                <tbody>
+                    <% for(var i = 0; i< data.length; i++) { %>
+
+                        <tr>
+                            <th scope="row"><%=(i+1) %></th>
+                            <th><%=data[i].titre%></th>
+                            <td><%=data[i].description%></td>
+                            <td><%=data[i].created_at%></td>
+                            <td><a class="btn btn-success edit" href="edit/<%=data[i].id%>">Update</a>  
+                            <a class="btn btn-danger  delete" onclick="return alert('if you kill me .')" href="delete/<%=data[i].id%>">Delete</a>
+                            </td>
+                         
+                        </tr>
+                        <% } %>
+                </tbody>
+            
+            </table>
+       
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+ <form class="search-form">
+<input type="text" class="search">
+
+<ul class="suggestions">
+
+<li>Filter for cityyyy</li>
+
+<li>or a state </li>
+
+
+
+
+</ul>
+
+</form>
+<script>
+
+
+const url='https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+ 
+ var cities=[];// attention aux const et var ..let ??
+ 
+ fetch(url)
+
+  .then(res=>res.json())
+ .then(data=>cities=data)
+//.then(data=>cities.push(...data));           //ca marche aussi avec push method
+
+function findmatch(wordmatch,cities) {     //cities ces les data
+
+ return cities.filter(function(place){
+//The filter() method creates an array filled with all array elements that pass a test (provided as a function).
+// filter a le meme syntaxe que forEach
+
+const regex=new RegExp(wordmatch,"gi");  
+             
+
+ return place.city.match(regex) ||  place.state.match(regex);
+
+        });
+    }
+
+    function displayword(){
+
+      if(this.value==""){
+      suggestions.innerHTML="";
+      }
+      else{
+         
+      
+      const matcharray=findmatch(this.value,cities);
+      const html=matcharray.map(place=>{
+        
+    
+
+          
+        return`
+        <li>
+        <span class="name">${place.city},${place.state}</span>
+        <span class="population">${place.population}</span>
+
+        </li>
+        `;
+    
+
+      })
+      suggestions.innerHTML=html;
+      }
+    }   
+  
+    const searchinput=document.querySelector(".search");
+
+    const suggestions=document.querySelector(".suggestions");
+    
+
+    searchinput.addEventListener("change",displayword);
+
+    searchinput.addEventListener("keyup",displayword);
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

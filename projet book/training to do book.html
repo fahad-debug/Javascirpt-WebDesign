@@ -1,0 +1,252 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<header> YOUR BOOK MY LOVE </header>
+
+ 
+<form id="mybook" class="mybook">
+
+<label for="title">TITLE:</label>
+<input type="text" id="title"><br>
+
+<label for="subject">:SUBJECT</label>
+<input type="text" id="subject"><br>
+
+<label for="quote">:QUOTE</label>
+<input type="text" id="quote"><br>
+
+<button type="submit">ADD YOUR BOOK</button>
+
+</form>
+
+
+<table>
+
+  
+<thead>
+<tr>
+    <td>TITLE</td>
+    <td>SUBJECT</td>
+    <td>QUOTE</td>
+
+
+</tr>
+
+</thead>
+
+
+<tbody class="bookinfos">
+
+
+
+</tbody>
+
+
+</table>
+
+
+
+
+
+<script>
+
+class Book
+
+{      
+    // REPRESENTE LES LIVRES
+
+
+    //IN A CONSTRUCTOR FUNCTION THIS DOES NOT HAVE A VALUE
+    //IT IS A SABSTITUTE FOR NEW OBJECT 
+    //THE VALUE OF THIS WILL BECOME THE NEW OBJECT WHEN 
+    //A NEW OBJECT IS CREATED 
+    // THIS IS A KEY WORD 
+   
+     constructor(title,subject,quote)
+    {
+
+         this.title=title;
+         this.subject=subject;
+         this.quote=quote;
+
+    }
+
+}
+
+
+   
+    class
+     Handel
+     {     
+         static displaybook(){
+
+            const books=Store.getbooks();//
+
+            books.forEach((book)=>Handel.addBookToList(book))
+
+         }
+
+
+            
+
+           static addBookToList(book)
+        {
+
+             const list=document.querySelector(".bookinfos");
+
+             const row=document.createElement("tr");
+
+
+             row.innerHTML=`<td>${book.title}</td>
+                            <td>${book.subject}</td>
+                            <td>${book.quote}</td>
+                            <td><a href="#" class="delete">X</a></td>
+
+                `;
+
+
+              list.appendChild(row);
+        }
+     
+
+        static delete(e)
+    {
+
+          if(e.classList.contains("delete")){
+
+            e.parentElement.parentElement.remove();
+
+          }
+    }
+  
+
+    
+     }
+
+
+
+
+     class Store{
+
+         
+
+           static getbooks(){
+
+            
+
+
+      let books;
+      if(localStorage.getItem("books")===null){
+
+              
+        books=[];
+
+      }
+     
+         
+
+
+       else{
+
+        books=JSON.parse(localStorage.getItem('books'));
+
+              return books;
+
+       }
+                 
+
+     }
+          
+    static addbook(book){
+
+        const books=Store.getbooks();
+
+        books.push(book);
+
+        localStorage.setItem("books",JSON.stringify(books));
+
+    }
+     }
+
+
+
+        
+     // display book 
+
+     document.addEventListener("DOMContentloaded",Handel.displaybook);
+
+
+     document.querySelector("#mybook").addEventListener('submit',(e)=>{
+
+    
+
+         e.preventDefault();
+
+
+         const title=document.querySelector("#title").value;
+         const subject=document.querySelector("#subject").value ;
+         const quote=document.querySelector("#quote").value;
+
+
+         const book=new Book(title,subject,quote);//ici je declare les valeur
+
+         //je vais traiter const book stockage et 
+
+        Handel.addBookToList(book);
+
+        Store.addbook(book);
+
+
+    }); 
+      
+
+       document.querySelector(".bookinfos").addEventListener('click',(e)=>{
+
+       
+       Handel.delete(e.target);
+    // quand tu clique tu vois dans le console ce que clique  target //
+
+
+Store.removeBook(e.target.parentElement.parentElementSibling.textContent);// target certain element //
+
+
+UI.showAlert("book removed", "success");
+
+    
+
+
+       });
+              
+
+
+
+
+
+
+
+
+</script>
+ 
+
+
+
+
+
+
+
+
+
+
+
+    
+</body>
+</html>

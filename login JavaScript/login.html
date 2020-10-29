@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ <div id="error"></div>
+<form action="" method="GET" id="form">
+ 
+ <div>
+ <label for="name">NAME</label>
+ <input id="name" name="name" type="text">
+ </div>
+
+<div>
+ <label for="password"></label>
+
+<input id="password" name="password" type="password">
+
+ 
+ 
+ </div>
+
+ <button type="submit">SUBMIT</button>
+
+</form>
+    
+</body>
+</html>
+<script>
+
+const name=document.getElementById("name");
+const password=document.getElementById("password");
+const form=document.getElementById("form");
+const error=document.getElementById('error');
+
+form.addEventListener("submit",(e)=>{
+
+    let message=[];
+
+    if(name.value == "" || name.value ==null ){
+
+        message.push("VOTRE NOM MY LOVE")
+    }
+
+    if(password.value.length <= 6){
+
+
+        message.push("PASSWORD MUST BE LONGER THAN 6 CHARECTER");
+
+
+
+    }
+      if(name.value=="") {
+
+          message.push("fuck you")
+      }
+                if(message.length>0){
+
+                    e.preventDefault()
+                    error.innerHTML=message.join(', ')
+                }
+
+
+})
+
+
+
+
+</script>
+
+<?php header("Location: hi.php"); ?>
